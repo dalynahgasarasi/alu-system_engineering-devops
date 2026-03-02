@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
 apt-get update -y
-apt-get install nginx -y
-
+apt-get install -y nginx
+chown -R www.data:www-data /var/www/html
 echo "Holberton School" > /var/www/html/index.html
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-service nginx stop
-service nginx start
+service nginx restart
